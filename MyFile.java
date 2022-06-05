@@ -1,5 +1,7 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.util.Scanner;
 
 public class MyFile implements Searchable {
 
@@ -49,6 +51,20 @@ public class MyFile implements Searchable {
 
     @Override
     public boolean hasKeyword(String word) {
+        try {
+            Scanner s = new Scanner(file);
+            int lineNum = 0;
+
+            while (s.hasNextLine()) {
+                String line = s.nextLine();
+                lineNum++;
+                if(line.contains(word)) {
+                    return true;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File does not exist");
+        }
         return false;
     }
 }
