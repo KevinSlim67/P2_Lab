@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Main {
+public class Library {
     public static void main(String[] args) {
         DocumentList documentList = new DocumentList();
         Document doc = new Document("Hello", Arrays.asList("Kevin", "Charbel"));
